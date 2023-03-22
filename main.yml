@@ -6,7 +6,7 @@
   connection: ssh
   vars:
     pkgname: docker
-    destiny: /mnt/
+   
 
   tasks:
     tasks:
@@ -20,7 +20,7 @@
 
     - name: deploy app on docker
       docker-compose:
-        project_src: "{{destiny}}"
+        project_src: "/mnt/stunning-lamp/"
         stete: present
         scale:
           app: 3
