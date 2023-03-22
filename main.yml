@@ -6,7 +6,7 @@
   connection: ssh
   vars:
     tomcat_url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.72/bin/apache-tomcat-9.0.72.zip
-    src_path: /mnt/game-of-life/gameoflife-web/target/gameoflife.war
+    src_path: /game-of-life/gameoflife-web/target/gameoflife.war
     des_path: /mnt/apache-tomcat-9.0.72/webapps/
     pkgname: java-1.8.0-openjdk.x86_64
     temp_cmd: unzip /mnt/apache-tomcat-9.0.72.zip
