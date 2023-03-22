@@ -1,0 +1,26 @@
+--- #my playbook
+- hosts: dev
+  user: ron
+  become: yes
+  gather_facts: yes
+  connection: ssh
+  vars:
+    pkgname: docker
+    destiny: /mnt/
+
+  tasks:
+    tasks:
+      - name: install docker
+        action: yum pkg="{{pkgname}}" state=present
+        notify: start service
+
+  handlers:
+    - name: start service
+      action: service name="{{pkgname}}" state=started
+
+    - name: deploy app on docker
+      docker-compose:
+        project_src: "{{destiny}}"
+        stete: present
+        scale:
+          app: 3
